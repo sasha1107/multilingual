@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "jsdoc": "^4.0.0"
+  },
+  "dependencies": {
+    "typescript": "^4.9.5"
   }
 }

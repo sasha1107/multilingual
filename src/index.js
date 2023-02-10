@@ -49,9 +49,9 @@ class TodoList {
 	 * ID를 제외한 모든 속성을 수정할 수 있다.
 	 * 특정 할 일의 특정 태그를 수정할 수 있다.
 	 * @param {number} id - 아이디
-         * @param {string} [content] - 내용
-         * @param {boolean} [isDone] - 완료여부
-         * @param {string} [category] - 카테고리
+	 * @param {string} [content] - 내용
+	 * @param {boolean} [isDone] - 완료여부
+	 * @param {string} [category] - 카테고리
 	 * @param {Tag[]} [tags] - 태그들
 	 */
 	updateTodo(id, tagId) {
