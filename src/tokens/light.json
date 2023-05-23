@@ -1,0 +1,60 @@
+{
+  "fg": {
+    "default": {
+      "value": "{colors.black}",
+      "type": "color",
+      "failedToResolve": true
+    },
+    "muted": {
+      "value": "{colors.gray.700}",
+      "type": "color",
+      "failedToResolve": true
+    },
+    "subtle": {
+      "value": "{colors.gray.500}",
+      "type": "color",
+      "failedToResolve": true
+    }
+  },
+  "bg": {
+    "default": {
+      "value": "{colors.white}",
+      "type": "color",
+      "failedToResolve": true
+    },
+    "muted": {
+      "value": "{colors.gray.100}",
+      "type": "color",
+      "failedToResolve": true
+    },
+    "subtle": {
+      "value": "{colors.gray.200}",
+      "type": "color",
+      "failedToResolve": true
+    }
+  },
+  "accent": {
+    "default": {
+      "value": "{colors.indigo.400}",
+      "type": "color",
+      "failedToResolve": true
+    },
+    "onAccent": {
+      "value": "{colors.white}",
+      "type": "color",
+      "failedToResolve": true
+    },
+    "bg": {
+      "value": "{colors.indigo.200}",
+      "type": "color",
+      "failedToResolve": true
+    }
+  },
+  "shadows": {
+    "default": {
+      "value": "{colors.gray.900}",
+      "type": "color",
+      "failedToResolve": true
+    }
+  }
+}

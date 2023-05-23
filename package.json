@@ -1,0 +1,25 @@
+{
+  "name": "design-token",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "tt:global": "npx token-transformer tokens.json ./src/tokens/global.json global",
+    "tt:light": "npx token-transformer tokens.json ./src/tokens/light.json light",
+    "tt:dark": "npx token-transformer tokens.json ./src/tokens/dark.json dark",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sasha1107/design-token.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sasha1107/design-token/issues"
+  },
+  "homepage": "https://github.com/sasha1107/design-token#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "style-dictionary": "^3.7.2"
+  }
+}

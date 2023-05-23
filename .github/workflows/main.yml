@@ -1,0 +1,35 @@
+name: Create PR from design to main
+
+on:
+  push:
+    branches:
+      - design
+    paths:
+      - 'tokens.json'
+      
+jobs:
+  createPullRequest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Commit files
+        run: |
+            npm install
+            npm install -g token-transformer
+            npm run tt:global
+            npm run tt:light
+            npm run tt:dark
+            git config --global user.name 'sasha1107'
+            git config --global user.email 'sasha1107@naver.com'
+            git add .
+            git commit -m "💄 Update Styles"
+            git push
+        env: 
+            GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Create Pull Request
+        run: gh pr create -B main -H design --title '💄 Update Design Token' --body '디자인 토큰 업데이트' --reviewer sasha1107
+        env:
+            GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
