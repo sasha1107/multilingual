@@ -32,9 +32,14 @@ function App() {
   };
   return (
     <div>
-      <button onClick={() => changeLanguage('en')}>English</button>
-      <button onClick={() => changeLanguage('ko')}>한국어</button>
-      <button onClick={() => changeLanguage('it')}>이탈리아어</button>
+      <div>{t('언어')}</div>
+      <select onChange={(e) => changeLanguage(e.target.value)}>
+        <option value=''>{t('언어')}</option>
+        <option value='ko'>한국어</option>
+        <option value='en'>English</option>
+        <option value='it'>Italiano</option>
+      </select>
+
       <h1>Vite + React</h1>
       <h2>{t('운행중')}</h2>
       <h2>{t('주차중')}</h2>
