@@ -24,5 +24,4 @@ dist-ssr
 *.sw?
 
 .env
-src/locales/*.json
-src/locales/en/*.json
+src/locales/**/*.json
