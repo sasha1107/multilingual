@@ -2,10 +2,9 @@ import fs from 'fs';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import dotenv from 'dotenv';
 
-// JSON 데이터 생성
 dotenv.config();
 
-async function makeJson() {
+(async function makeJson() {
   const doc = new GoogleSpreadsheet(process.env.SHEET_ID, {
     apiKey: process.env.VITE_GOOGLE_API_KEY,
   });
@@ -15,18 +14,24 @@ async function makeJson() {
 
   for (let i = 0; i < sheets; i++) {
     const sheet = doc.sheetsByIndex[i];
-    const rows = await sheet.getRows();
     await sheet.loadCells();
+    const rows = await sheet.getRows();
+    const langs = await sheet._headerValues; // ['ko', 'en', 'it']
+
     const jsonData = {};
 
-    for (let j = 1; j < rows.length; j++) {
-      jsonData[sheet.getCell(j, 0).value] = sheet.getCell(j, 1).value;
-    }
+    langs.forEach((language, index) => {
+      for (let j = 1; j < rows.length; j++) {
+        jsonData[sheet.getCell(j, 0).value] = sheet.getCell(j, index).value;
+      }
 
-    // JSON 데이터를 문자열로 변환
-    const jsonString = JSON.stringify(jsonData, null, 2);
-    // JSON 파일 생성
-    fs.writeFileSync(`./src/locales/en/${sheet.title}.json`, jsonString);
+      const jsonString = JSON.stringify(jsonData, null, 2);
+
+      // JSON 파일 생성
+      fs.writeFileSync(
+        `./src/locales/${language}/${sheet.title}.json`,
+        jsonString,
+      );
+    });
   }
-}
-makeJson();
+})();
